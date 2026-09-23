@@ -303,5 +303,21 @@ nav a {
     </div>
 </footer>
 
+    const searchInput = document.querySelector('.search-container input');
+const cards = document.querySelectorAll('.card');
+
+searchInput.addEventListener('input', () => {
+  const searchTerm = searchInput.value.toLowerCase();
+  cards.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    const text = card.querySelector('p').textContent.toLowerCase();
+    if (title.includes(searchTerm) || text.includes(searchTerm)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+
 </body>
 </html>
